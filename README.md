@@ -1,4 +1,0 @@
-Novuscoin
-=========
-
-Novuscoin Project
