@@ -10,12 +10,12 @@ What is Novuscoin?
 ----------------
 
 Novuscoin is a light version of Bitcoin using scrypt as a proof-of-work algorithm.
- - 2.5 minute block targets
- - subsidy halves in 840k blocks (~4 years)
- - ~84 million total coins
+ - 2.1 minute block targets
+ - subsidy halves in 8,400,000 blocks (~4 years)
+ - ~8.40 billion total coins
 
 The rest is the same as Bitcoin.
- - 50 coins per block
+ - 500 coins per block
  - 2016 blocks to retarget difficulty
 
 For more information, as well as an immediately useable, binary version of
