@@ -1319,8 +1319,8 @@ Adres: %4
     </message>
     <message>
         <location line="+10"/>
-        <source>123.456 BTC</source>
-        <translation>123.456 BTC</translation>
+        <source>123.456 NOV</source>
+        <translation>123.456 NOV</translation>
     </message>
     <message>
         <location line="+31"/>
@@ -2272,8 +2272,8 @@ Adres: %4
     </message>
     <message>
         <location line="+27"/>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 9332 or testnet: 19332)</source>
-        <translation>JSON-RPC bağlantılarını &lt;port&gt; üzerinde dinle (varsayılan: 9332 veya tesnet: 19332)</translation>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 62108 or testnet: 62222)</source>
+        <translation>JSON-RPC bağlantılarını &lt;port&gt; üzerinde dinle (varsayılan: 62108 veya tesnet: 62222)</translation>
     </message>
     <message>
         <location line="+37"/>

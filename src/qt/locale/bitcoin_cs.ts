@@ -1319,8 +1319,8 @@ Adresa: %4
     </message>
     <message>
         <location line="+10"/>
-        <source>123.456 BTC</source>
-        <translation>123.456 BTC</translation>
+        <source>123.456 NOV</source>
+        <translation>123.456 NOV</translation>
     </message>
     <message>
         <location line="+31"/>
@@ -2272,8 +2272,8 @@ Adresa: %4
     </message>
     <message>
         <location line="+27"/>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 9332 or testnet: 19332)</source>
-        <translation>Čekat na JSON RPC spojení na &lt;portu&gt; (výchozí: 9332 nebo testnet: 19332)</translation>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 62108 or testnet: 62222)</source>
+        <translation>Čekat na JSON RPC spojení na &lt;portu&gt; (výchozí: 62108 nebo testnet: 62222)</translation>
     </message>
     <message>
         <location line="+37"/>
