@@ -1,5 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
+// Copyright (c) 20011-2013 The Litecoin developers
+// Copyright (c) 2014- The Novuscoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -1082,23 +1084,57 @@ uint256 static GetOrphanRoot(const CBlockHeader* pblock)
     return pblock->GetHash();
 }
 
-int64 static GetBlockValue(int nHeight, int64 nFees)
-{
-    int64 nSubsidy = 500 * COIN;
+//int64 static GetBlockValue(int nHeight, int64 nFees)
+//{
+    //int64 nSubsidy = 500 * COIN;
 
     // Subsidy is cut in half every 8400000 blocks, which will occur approximately every 4 years
-      if (nHeight / 8400000 >= 63)
-    nSubsidy = 0;
-  else
-    nSubsidy >>= (nHeight / 8400000);
+      //if (nHeight / 8400000 >= 63)
+    //nSubsidy = 0;
+  //else
+    //nSubsidy >>= (nHeight / 8400000);
    // nSubsidy >>= (nHeight / 8400000); // Novuscoin: 8,400,000 blocks in ~4 years
 
-    return nSubsidy + nFees;
+    //return nSubsidy + nFees;
+    // 
+//}
+
+int64 GetProofOfWorkReward(int nHeight, int64 nFees, uint256 prevHash)
+{
+// Subsidy is cut in half every 400 thousand blocks
+nSubsidy >>= (nHeight / 400000);
+// Minimum subsidy
+if (nSubsidy < nMinimumCoin)
+{
+nSubsidy = nMinimumCoin;
 }
 
-static const int64 nTargetTimespan = 1 * 24 * 60 * 60; // Novuscoin: 1 day
-static const int64 nTargetSpacing = 2.1* 60; // Novuscoin: 2.1 minutes
+return nSubsidy + nFees;
+}
+static const int64 nTargetTimespan = 4 * 60 * 60; // Novuscoin: Every 4 hours
+static const int64_t nTargetTimespanNEW = 60 ; // Novuscoin: every 1 minute
+static const int64 nTargetSpacing = 60; // Novuscoin: 1 minute
 static const int64 nInterval = nTargetTimespan / nTargetSpacing;
+
+static const int64 nMinimumCoin = 0.08 * COIN;
+int64 nSubsidy = 0.08 * COIN; //genesis
+if (nHeight > 0 && nHeight < 30) {nSubsidy = 0 * COIN;}  // zero
+else if (nHeight == 1440) {nSubsidy = 105,000,000 * COIN;}  // Premine- Necessary for 150B NOV reserves, for ZERO interest loans for NovuscoinRealty.com and NovuscoinCars.com
+else if (nHeight > 1440 && nHeight < 1540) {nSubsidy = 10000 * COIN;}   // IRC Launch
+else if (nHeight > 1540 && nHeight < 1580) {nSubsidy = 0.08 * COIN;} // low instamine official launch
+else if (nHeight ==1580) {nSubsidy = 50 * COIN;} 
+else if (nHeight > 1580 && nHeight < 4000) {nSubsidy = 1050 * COIN;} //final launch period, 1050 coins per block
+else if (nHeight > 4000 && nHeight < 8000) {nSubsidy = 150 * COIN;} // 150 coin
+else if (nHeight > 8000 && nHeight < 16000) {nSubsidy = 200 * COIN;}  // 200 coins per block
+else if (nHeight > 16000 && nHeight < 32000) {nSubsidy = 250 * COIN;} // 250 coins per block
+else if (nHeight > 32000 && nHeight < 64000) {nSubsidy = 300 * COIN;}// 300 coins per block
+else if (nHeight > 64000 && nHeight < 100000) {nSubsidy = 350 * COIN;} // 350 coins
+else if (nHeight == 100000) {nSubsidy = 1000 * COIN;}               // bonus reward
+else if (nHeight > 100000 && nHeight < 120000) {nSubsidy = 400 * COIN;} // 400 coins
+else if (nHeight > 120000 && nHeight < 250000) {nSubsidy = 450 * COIN;} // 450 coins
+else if (nHeight > 250000 && nHeight < 400000) {nSubsidy = 500 * COIN;} // 500 coins
+else if (nHeight > 400000) {nSubsidy =25 COIN;}
+else {nSubsidy = 1 * COIN;}              
 
 //
 // minimum amount of work that could possibly be required nTime after
@@ -2104,7 +2140,7 @@ bool CBlock::CheckBlock(CValidationState &state, bool fCheckPOW, bool fCheckMerk
         return state.DoS(100, error("CheckBlock() : size limits failed"));
 
     // Novuscoin: Special short-term limits to avoid 10,000 BDB lock limit:
-    if (GetBlockTime() < 1376568000)  // stop enforcing 15 August 2013 00:00:00
+    if (GetBlockTime() < 1439640000)  // stop enforcing 15 August 2015 00:00:00
     {
         // Rule is: #unique txids referenced <= 4,500
         // ... to prevent 10,000 BDB lock exhaustion on old clients
@@ -2746,10 +2782,10 @@ bool LoadBlockIndex()
 {
     if (fTestNet)
     {
-        pchMessageStart[0] = 0xfc;
-        pchMessageStart[1] = 0xc1;
-        pchMessageStart[2] = 0xb7;
-        pchMessageStart[3] = 0xdc;
+        pchMessageStart[0] = 0x4E;//N
+        pchMessageStart[1] = 0x4F;//O
+        pchMessageStart[2] = 0x56;//V
+        pchMessageStart[3] = 0x55;//U
         hashGenesisBlock = uint256("0xf5ae71e26c74beacc88382716aced69cddf3dffff24f384e1808905e0188f68f");
     }
 
@@ -2783,12 +2819,12 @@ bool InitBlockIndex() {
         //   vMerkleTree: 97ddfbbae6
 
         // Genesis block
-        const char* pszTimestamp = "NY Times 05/Oct/2011 Steve Jobs, Apple’s Visionary, Dies at 56";
+        const char* pszTimestamp = "Wikipedia 11/August/Actor, Comedian, Robin Williamas dies at 63";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CBigNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
-        txNew.vout[0].nValue = 50 * COIN;
+        txNew.vout[0].nValue = 500 * COIN;
         txNew.vout[0].scriptPubKey = CScript() << ParseHex("040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9") << OP_CHECKSIG;
         CBlock block;
         block.vtx.push_back(txNew);

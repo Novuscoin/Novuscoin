@@ -1191,22 +1191,20 @@ void MapPort(bool)
 // Each pair gives a source name and a seed name.
 // The first name is used as information source for addrman.
 // The second name should resolve to a list of seed addresses.
-//I was not sure what I should do about Xurious.com and wemine-testnet.com if I should setup something similar
 static const char *strMainNetDNSSeed[][2] = {
     {"novuscointools.com", "dnsseed.novuscointools.com"},
     {"novuscoinpool.org", "dnsseed.novuscoinpool.org"},
-    {"xurious.com", "dnsseed.ltc.xurious.com"},
-    {"koin-project.com", "dnsseed.koin-project.com"},
-    {"weminemnc.com", "dnsseed.weminemnc.com"},
+    {"fundthis.us", "dnsseed.nov.fundthis.us.com"},
+    {"dosd.us", "dnsseed.dosd.us"},
+    {"winwinsolutions.tv", "dnsseed.winwwinsolutions.tv"},
     {NULL, NULL}
 };
 
 static const char *strTestNetDNSSeed[][2] = {
-//I setup on the Godaddy server but I am not sure I did it right, Giovanni.
-//I was not sure what I should do about Xurious.com and wemine-testnet.com if I should setup something similar
+
     {"novuscointools.com", "testnet-seed.novuscointools.com"},
-    {"xurious.com", "testnet-seed.nov.xurious.com"},
-    {"wemine-testnet.com", "dnsseed.wemine-testnet.com"},
+    {"fundthis.us", "dnsseed.nov.fundthis.us.com"},
+    {"dosd.us", "dnsseed.dosd.us"},
     {NULL, NULL}
 };
 
