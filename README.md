@@ -18,7 +18,7 @@ Novuscoin is a light version of Bitcoin using scrypt as a proof-of-work algorith
  - The advantage of reserves are that if coins are lost or stolen we can easily reset the wallets and render stolen coins useless and locate all addresses prior to the theft and replace lost or stolen coins for the public. 
  - We estimate to have in circulation 236,471,000 coins by end of 2016
  - We have incremental payouts depending on difficulty. 
- - Finally to the mininmum of 25 coins per block after 400,000 blocks.
+ - Finally to the minimum of 25 coins per block after 400,000 blocks.
  - 2016 blocks to retarget difficulty
 
 License
@@ -46,7 +46,7 @@ match the project's coding conventions (see `doc/coding.txt`) or are
 controversial."
 
 The `master .08` branch is regularly built and tested, but is not guaranteed to be
-completely stable. [Tags](https://github.com/Novuscoin/Novuscoin/tags) are created
+completely stable. [Tags](https://github.com/Novuscoin/Novuscoin) are created
 regularly to indicate new official, stable release versions of Novuscoin.
 
 Testing
