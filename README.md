@@ -26,7 +26,7 @@ information or see http://opensource.org/licenses/MIT.
 
 Development process
 -------------------
-We need help with making the code better. If you are a developer we are paying a bounty for your help. Please contact us at webmaster@novuscoincorp.com.
+We need help with making the code better. If you are a developer we are paying a bounty for your help. Please contact us at webmaster@novuscoin.co
 
 "Developers work in their own trees, then submit pull requests when they think
 their feature or bug fix is ready.
