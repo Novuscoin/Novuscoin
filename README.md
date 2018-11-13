@@ -1,7 +1,7 @@
 Novuscoin integration/staging tree
 ================================
 
-http://www.Novuscoin.org
+http://www.Novuscoin.co
 
 Copyright (c) 2009-2014 Bitcoin Developers
 Copyright (c) 2011-2013 Litecoin Developers
@@ -13,13 +13,10 @@ What is Novuscoin?
 Novuscoin is a light version of Bitcoin using scrypt as a proof-of-work algorithm.
  - 1 minute per block
  - About 1440 blocks per day
- - We will premine about 150 billion in restricted Novuscoin mostly kept offline to be able to have reserves for lost or stolen coins, to use for the Zero interest loan program for NovuscoinRealty.com and NovuscoinCars.com
+ - We will premine about 150 billion in restricted Novuscoin mostly kept offline to be able to have reserves for lost or stolen coins, to use for the Zero interest loan program for cars and real estate.
  - We will restrict the use and sale of the reserves so as to not disrupt market prices of Novuscoin. We want to ensure that we continue to maintain a stable price level.
  - The advantage of reserves are that if coins are lost or stolen we can easily reset the wallets and render stolen coins useless and locate all addresses prior to the theft and replace lost or stolen coins for the public. 
- - We estimate to have in circulation 236,471,000 coins by end of 2016
  - We have incremental payouts depending on difficulty. 
- - Finally to the minimum of 25 coins per block after 400,000 blocks.
- - 2016 blocks to retarget difficulty
 
 License
 -------
